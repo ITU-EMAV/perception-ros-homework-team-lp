@@ -1,1 +1,0 @@
-# Copy your perception homework to here.

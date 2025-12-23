@@ -16,7 +16,6 @@ from Perception.evaluate import evaluate
 from tf2_ros import TransformException
 from tf2_ros.buffer import Buffer
 from tf2_ros.transform_listener import TransformListener
-
 from .rotation_utils import transform_pose
 
 import warnings
@@ -27,11 +26,11 @@ device = "cpu"
 class Perception(Node):
     
  
-    def __init__(self,trained_model = "/home/ubuntu/workspace/ros2_ws/src/perception_ros/Perception/model.pt"):
+    def __init__(self,trained_model = "/home/ubuntu/workspace/ros2_ws/src/perception_ros/Perception/epoch_39.pt"):
         super().__init__('Perception')
         self.image_subscription = self.create_subscription(
             Image,
-            '/sac/sensors/front_camera/image', #You can change this topic to your image topic
+            '/oakd/rgb/image_raw', #You can change this topic to your image topic
             self.image_callback,
             10)
         self.pose_publisher = self.create_publisher(
